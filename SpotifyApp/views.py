@@ -64,6 +64,9 @@ class TracksInPlaylistView(generics.ListCreateAPIView): #list create
     #obsługa tworzenia nowego obiektu TracksInPlaylist
     serializer_class = TracksInPlaylistSerializer
     permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
+    lookup_field_trackid = 'track_id'
+    lookup_field_playlistid = 'playlist_id'
+   
     def get_queryset(self): #get
         playlist_id = self.kwargs['playlist_id'] #pobierane z url
         return TracksInPlaylist.objects.filter(playlist_id=playlist_id)
@@ -84,7 +87,7 @@ class TrackInPlaylistDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TracksInPlaylistSerializer
     permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
     lookup_url_kwarg = 'track_id'
-
+    
     def get_queryset(self):
         playlist_id = self.kwargs['playlist_id'] #pobierane z url
         track_id = self.kwargs[self.lookup_url_kwarg] #pobierane z url
@@ -171,15 +174,6 @@ class LikedDetailView(generics.RetrieveDestroyAPIView):
         print(f"user: {user}, track ID: {track}")
         print(f"type user: {type(user)}, type track ID: {type(track)}")
         return Liked.objects.get(user=user, track=track)
-        # try:
-        #     existing_liked_object = Liked.objects.get(user__id=user, track_id=track)
-        #     print(existing_liked_object)
-        #     print("Object exists")
-        #     return existing_liked_object
-        # except ObjectDoesNotExist:
-        #     print("Object does not exist")
-        # return Liked.objects.filter(user_id=user, track_id=track)
-        # return existing_liked_object
 
 class TopArtistsView(APIView):
     permission_classes = [permissions.IsAuthenticated]
