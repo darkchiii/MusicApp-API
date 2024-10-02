@@ -1,32 +1,14 @@
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response #generate json responses
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
-from .serializers import UserSerializer 
+from .serializers import UserSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
-from rest_framework import status 
+from rest_framework import status
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 
-# class UserRegistrationView(generics.CreateAPIView):
-#     serializer_class = UserSerializer
-#     permission_classes = [AllowAny]
-# class UserLoginView(APIView):
-#     authentication_classes = [TokenAuthentication]
-#     permission_classes = [AllowAny]
-#     # @api_view(['POST']) # jak to dodaje to token sie nie zwraca
-#     # @permission_classes((permissions.AllowAny))
-#     def post(self, request):
-#         user = authenticate(username=request.data["username"], password=request.data["password"])
-#         if user:
-#             token, created = Token.objects.get_or_create(user=user)
-#             return Response({'token': token.key,
-#                             # 'user_id': user.pk,
-#                             })
-#         else:
-#             return Response({'error': 'Invalid Credentials'}, status=401)
-        
 @api_view(["POST"])
 def login(request):
     user = get_object_or_404(User, username=request.data["username"])

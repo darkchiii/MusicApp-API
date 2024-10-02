@@ -4,28 +4,13 @@ from django.urls import path, include
 from rest_framework import routers, serializers, viewsets
 from rest_framework.documentation import include_docs_urls
 
-# # Serializers define the API representation.
-# class UserSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ['url', 'username', 'email', 'is_staff']
-
-# # ViewSets define the view behavior.
-# class UserViewSet(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-
-# # Routers provide an easy way of automatically determining the URL conf.
-# router = routers.DefaultRouter()
-# router.register(r'users', UserViewSet)
-
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
-
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('docs/', include_docs_urls(title='My little API')),
     path('admin/', admin.site.urls),
-    path('', include('SpotifyApp.urls')),
     path('', include('authentication.urls')),
+    path('', include('artists.urls')),
+    path('', include('albums.urls')),
+    path('', include('tracks.urls')),
+    path('', include('playlists.urls')),
 ]

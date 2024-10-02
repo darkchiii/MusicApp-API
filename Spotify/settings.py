@@ -32,15 +32,21 @@ INSTALLED_APPS = [
     'rest_framework.documentation',
     'rest_framework',
     'rest_framework.authtoken',
-    'authentication.apps.AuthenticationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-        # 'SpotifyApp.apps.SpotifyappConfig',
-    'SpotifyApp',
+    'authentication.apps.AuthenticationConfig',
+    # 'SpotifyApp.apps.SpotifyappConfig',
+    'artists.apps.ArtistsConfig',
+    # 'SpotifyApp',
+    # 'artists',
+    'albums.apps.AlbumsConfig',
+    'tracks.apps.TracksConfig',
+    'playlists.apps.PlaylistsConfig',
+    'django_cron',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +145,6 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
+CRON_CLASSES = [
+    'Spotify.cron.UpdateListenersCronJob',
+]
