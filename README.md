@@ -10,8 +10,7 @@ A RESTful API for managing music-related data, including artists, albums, tracks
 - [Usage](#usage)
 - [Endpoints](#endpoints)
 - [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
