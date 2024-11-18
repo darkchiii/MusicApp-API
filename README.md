@@ -115,177 +115,177 @@ Below is a comprehensive list of API endpoints, grouped by functionality with a 
 
 ### Authentication
 
-- **`POST /login/`**
-  Authenticates a user using credentials.
-  **Request Body**: `{ "username": "user", "password": "pass" }`
+- **`POST /login/`** 
+  Authenticates a user using credentials.  
+  **Request Body**: `{ "username": "user", "password": "pass" }`  
   **Response**: Returns a token for authenticated access.
 
-- **`POST /logout/`**
-  Logs the user out and invalidates the current session token.
+- **`POST /logout/`** 
+  Logs the user out and invalidates the current session token.  
   **Response**: Confirms logout status.
 
-- **`POST /signup/`**
-  Registers a new user account.
-  **Request Body**: `{ "username": "user", "email": "user@example.com", "password": "pass" }`
+- **`POST /signup/`** 
+  Registers a new user account.  
+  **Request Body**: `{ "username": "user", "email": "user@example.com", "password": "pass" }`  
   **Response**: Returns success message and user details upon successful registration.
 
-- **`GET /test_token/`**
-  Validates the provided token.
+- **`GET /test_token/`** 
+  Validates the provided token.  
   **Response**: Returns confirmation if the token is valid.
 
 ---
 
 ### Artists
 
-- **`GET /artists/`**
-  Retrieves a list of all artists.
+- **`GET /artists/`** 
+  Retrieves a list of all artists.  
   **Response**: Returns artist data.
 
-- **`POST /artists/`**
-  Adds a new artist to the collection.
-  **Request Body**: `{ "name": "artist_name", "genre": "genre" }`
-  **Response**: Returns the newly created artist.
+- **`POST /artists/`** 
+  Adds a new artist to the collection.  
+  **Request Body**: { "name": "artist_name",  „bio”:  „bio” }  
+  **Response**: Returns the newly created artist with a default value equal to 0.
 
-- **`GET /artists/:artistId/`**
-  Retrieves detailed information for a specific artist by ID.
+- **`GET /artists/:artistId/`** 
+  Retrieves detailed information for a specific artist by ID.  
   **Response**: Artist data.
 
-- **`PUT /artists/:artistId/`**
-  Updates information for a specified artist.
-  **Request Body**: `{ "name": "updated_name", "genre": "updated_genre" }`
+- **`PUT /artists/:artistId/`** 
+  Updates information for a specified artist.  
+  **Request Body**: { "name": "updated_name", „bio”: „bio” }  
   **Response**: Returns updated artist details.
 
-- **`DELETE /artists/:artistId/`**
-  Removes an artist from the collection by ID.
+- **`DELETE /artists/:artistId/`** 
+  Removes an artist from the collection by ID.  
   **Response**: Confirms deletion.
 
-- **`GET /favorite/`**
-  Retrieves the list of artists marked as favorite by the user.
+- **`GET /favorite/`** 
+  Retrieves the list of artists marked as favorite by the user.  
   **Response**: List of favorite artists.
 
-- **`GET /all_favorite/`**
-  Retrieves all artists marked as favorite across users.
+- **`GET /all_favorite/`** 
+  Retrieves all artists marked as favorite across users based on total number of plays from last 28 days.  
   **Response**: List of globally favorite artists.
 
 ---
 
 ### Albums
 
-- **`GET /albums/`**
-  Retrieves a list of all albums.
+- **`GET /albums/`** 
+  Retrieves a list of all albums.  
   **Response**: List of albums.
 
-- **`POST /albums/`**
-  Adds a new album to the collection.
-  **Request Body**: `{ "title": "album_title", "artistId": "artist_id" }`
+- **`POST /albums/`** 
+  Adds a new album to the collection.  
+  **Request Body**: { „name”: "album_name”, "artistId": "artist_id" , „release_date”: „release_date” }  
   **Response**: Returns the newly created album.
 
-- **`GET /albums/:albumId/`**
-  Retrieves details of a specific album by ID.
+- **`GET /albums/:albumId/`** 
+  Retrieves details of a specific album by ID.  
   **Response**: Album data.
 
-- **`PUT /albums/:albumId/`**
-  Updates information for a specified album.
-  **Request Body**: `{ "title": "updated_title" }`
+- **`PUT /albums/:albumId/`** 
+  Updates information for a specified album.  
+  **Request Body**: `{ „name”: "album_name”, "artistId": "artist_id" , „release_date”: „release_date” }`  
   **Response**: Returns updated album details.
 
-- **`DELETE /albums/:albumId/`**
-  Deletes an album by ID.
+- **`DELETE /albums/:albumId/`** 
+  Deletes an album by ID.  
   **Response**: Confirms deletion.
 
 ---
 
 ### Tracks
 
-- **`GET /tracks/`**
-  Retrieves a list of all tracks.
-  **Response**: List of tracks.
+- **`GET /tracks/`** 
+  Retrieves a list of all tracks.  
+  **Response**: List of tracks. 
 
-- **`POST /tracks/`**
-  Adds a new track to the collection.
-  **Request Body**: `{ "title": "track_title", "albumId": "album_id" }`
+- **`POST /tracks/`** 
+  Adds a new track to the collection.  
+  **Request Body**: `{ "albumId": "album_id", "title": "track_title", "duration": "duration_in_seconds" }`  
   **Response**: Returns the newly created track.
 
-- **`GET /tracks/:trackId/`**
-  Retrieves details for a specific track by ID.
+- **`GET /tracks/:trackId/`** 
+  Retrieves details for a specific track by ID.  
   **Response**: Track data.
 
-- **`PUT /tracks/:trackId/`**
-  Updates information for a specified track.
-  **Request Body**: `{ "title": "updated_title" }`
+- **`PUT /tracks/:trackId/`** 
+  Updates information for a specified track.  
+  **Request Body**: `{ "albumId": "album_id", "title": "track_title", "duration": "duration_in_seconds" }`  
   **Response**: Returns updated track details.
 
-- **`DELETE /tracks/:trackId/`**
-  Deletes a track by ID.
-  **Response**: Confirms deletion.
+- **`DELETE /tracks/:trackId/`** 
+  Deletes a track by ID.  
+  **Response**: Confirms deletion. 
 
-- **`POST /play/:trackId/`**
-  Marks a track as played by the user.
-  **Response**: Confirms play status.
+- **`POST /play/:trackId/`** 
+  Marks a track as played by the user.  
+  **Response**: Confirms play status. 
 
-- **`GET /played/`**
-  Retrieves a history of played tracks.
+- **`GET /played/`** 
+  Retrieves a history of user most played tracks.  
   **Response**: List of played tracks.
 
-- **`POST /like/:trackId/`**
-  Marks a track as liked by the user.
+- **`POST /like/:trackId/`** 
+  Marks a track as liked by the user.  
   **Response**: Confirms like status.
 
-- **`DELETE /like/:trackId/`**
-  Removes a track from the user’s liked tracks.
-  **Response**: Confirms unlike status.
+- **`DELETE /like/:trackId/`** 
+  Removes a track from the user’s liked tracks.  
+  **Response**: Confirms unlike status. 
 
-- **`GET /liked/`**
-  Retrieves a list of all tracks liked by the user.
-  **Response**: List of liked tracks.
+- **`GET /liked/`** 
+  Retrieves a list of all tracks liked by the user.  
+  **Response**: List of liked tracks. 
 
-- **`GET /search/`**
-  Allows search functionality for tracks based on keywords or filters.
-  **Request Query**: `?q=search_term`
-  **Response**: Search results.
+- **`GET /search/`** 
+  Allows search functionality for tracks based on keywords or filters.  
+  **Request Query**: `?q=search_term`  
+  **Response**: Search results. 
 
 ---
 
 ### Playlist
 
-- **`GET /playlist/`**
-  Retrieves a list of all playlists created by the user.
+- **`GET /playlist/`** 
+  Retrieves a list of all playlists created by the logged in user.  
   **Response**: List of playlists.
+  
+- **`GET /playlists/:userId/`** 
+  Retrieves all public playlists for a specified user by user ID.  
+  **Response**: List of public playlists for the specified user. 
 
-- **`POST /playlist/`**
-  Creates a new playlist for the user.
-  **Request Body**: `{ "name": "playlist_name" }`
-  **Response**: Returns the newly created playlist.
+- **`POST /playlist/`** 
+  Creates a new playlist for the user.  
+  **Request Body**: `{ "name": "playlist_name", "description": "playlist_description", "public": false }` Public field by default is set to true.    
+  **Response**: Returns the newly created playlist. 
 
-- **`GET /playlist/:playlistId/`**
-  Retrieves details of a specific playlist by ID.
+- **`GET /playlist/:playlistId/`** 
+  Retrieves details of a specific playlist by ID.  
   **Response**: Playlist data.
 
-- **`PUT /playlist/:playlistId/`**
-  Updates a specified playlist’s details.
-  **Request Body**: `{ "name": "updated_name" }`
+- **`PUT /playlist/:playlistId/`** 
+  Updates a specified playlist’s details.  
+  **Request Body**: `{ "name": "playlist_name", "description": "playlist_description", "public": false }`  
   **Response**: Returns updated playlist details.
 
-- **`DELETE /playlist/:playlistId/`**
-  Deletes a playlist by ID.
-  **Response**: Confirms deletion.
+- **`DELETE /playlist/:playlistId/`** 
+  Deletes a playlist by ID.  
+  **Response**: Confirms deletion. 
 
-- **`GET /playlists/:userId/`**
-  Retrieves all playlists for a specified user by user ID.
-  **Response**: List of playlists for the user.
-
-- **`POST /add-track/:trackId/`**
-  Adds a track to the user's current playlist.
+- **`POST /add-track/:trackId/`** 
+  If playlist id is not defined a new playlist will be created with the name of the added song.  
   **Response**: Confirms track addition.
 
-- **`POST /add-track/:trackId/:playlistId/`**
-  Adds a track to a specified playlist.
-  **Response**: Confirms track addition.
+- **`POST /add-track/:trackId/:playlistId/`** 
+  Adds a track to a specified playlist.  
+  **Response**: Confirms track addition. 
 
-- **`DELETE /remove-track/`**
-  Removes a track from the current playlist.
-  **Request Body**: `{ "trackId": "track_id" }`
-  **Response**: Confirms track removal.
+- **`DELETE /remove-track/:trackId/`** 
+  Removes a track from the current playlist.  
+  **Request Body**: `{ "trackId": "track_id" }`  
+  **Response**: Confirms track removal. 
 
 ## Testing
 
