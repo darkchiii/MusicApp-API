@@ -115,21 +115,21 @@ Below is a comprehensive list of API endpoints, grouped by functionality with a 
 
 ### Authentication
 
-- **`POST /login/`** 
+- **`POST /login/`**  
   Authenticates a user using credentials.  
   **Request Body**: `{ "username": "user", "password": "pass" }`  
   **Response**: Returns a token for authenticated access.
 
-- **`POST /logout/`** 
+- **`POST /logout/`**  
   Logs the user out and invalidates the current session token.  
   **Response**: Confirms logout status.
 
-- **`POST /signup/`** 
+- **`POST /signup/`**  
   Registers a new user account.  
   **Request Body**: `{ "username": "user", "email": "user@example.com", "password": "pass" }`  
   **Response**: Returns success message and user details upon successful registration.
 
-- **`GET /test_token/`** 
+- **`GET /test_token/`**  
   Validates the provided token.  
   **Response**: Returns confirmation if the token is valid.
 
@@ -137,33 +137,33 @@ Below is a comprehensive list of API endpoints, grouped by functionality with a 
 
 ### Artists
 
-- **`GET /artists/`** 
+- **`GET /artists/`**  
   Retrieves a list of all artists.  
   **Response**: Returns artist data.
 
-- **`POST /artists/`** 
+- **`POST /artists/`**  
   Adds a new artist to the collection.  
   **Request Body**: { "name": "artist_name",  „bio”:  „bio” }  
   **Response**: Returns the newly created artist with a default value equal to 0.
 
-- **`GET /artists/:artistId/`** 
+- **`GET /artists/:artistId/`**  
   Retrieves detailed information for a specific artist by ID.  
   **Response**: Artist data.
 
-- **`PUT /artists/:artistId/`** 
+- **`PUT /artists/:artistId/`**  
   Updates information for a specified artist.  
   **Request Body**: { "name": "updated_name", „bio”: „bio” }  
   **Response**: Returns updated artist details.
 
-- **`DELETE /artists/:artistId/`** 
+- **`DELETE /artists/:artistId/`**  
   Removes an artist from the collection by ID.  
   **Response**: Confirms deletion.
 
-- **`GET /favorite/`** 
+- **`GET /favorite/`**  
   Retrieves the list of artists marked as favorite by the user.  
   **Response**: List of favorite artists.
 
-- **`GET /all_favorite/`** 
+- **`GET /all_favorite/`**  
   Retrieves all artists marked as favorite across users based on total number of plays from last 28 days.  
   **Response**: List of globally favorite artists.
 
@@ -171,25 +171,25 @@ Below is a comprehensive list of API endpoints, grouped by functionality with a 
 
 ### Albums
 
-- **`GET /albums/`** 
+- **`GET /albums/`**  
   Retrieves a list of all albums.  
   **Response**: List of albums.
 
-- **`POST /albums/`** 
+- **`POST /albums/`**  
   Adds a new album to the collection.  
   **Request Body**: { „name”: "album_name”, "artistId": "artist_id" , „release_date”: „release_date” }  
   **Response**: Returns the newly created album.
 
-- **`GET /albums/:albumId/`** 
+- **`GET /albums/:albumId/`**  
   Retrieves details of a specific album by ID.  
   **Response**: Album data.
 
-- **`PUT /albums/:albumId/`** 
+- **`PUT /albums/:albumId/`**  
   Updates information for a specified album.  
   **Request Body**: `{ „name”: "album_name”, "artistId": "artist_id" , „release_date”: „release_date” }`  
   **Response**: Returns updated album details.
 
-- **`DELETE /albums/:albumId/`** 
+- **`DELETE /albums/:albumId/`**  
   Deletes an album by ID.  
   **Response**: Confirms deletion.
 
@@ -197,49 +197,49 @@ Below is a comprehensive list of API endpoints, grouped by functionality with a 
 
 ### Tracks
 
-- **`GET /tracks/`** 
+- **`GET /tracks/`**  
   Retrieves a list of all tracks.  
   **Response**: Returns a list of tracks, including details like title, album, duration, and other metadata.
 
-- **`POST /tracks/`** 
+- **`POST /tracks/`**  
   Adds a new track to the collection. The request should include the albumId, title, and duration (in seconds) for the track.
   **Request Body**: `{ "albumId": "album_id", "title": "track_title", "duration": "duration_in_seconds" }`  
   **Response**: Returns the newly created track.
 
-- **`GET /tracks/:trackId/`** 
+- **`GET /tracks/:trackId/`**  
   Retrieves details for a specific track by ID.  
   **Response**:  Returns the track data, including its title, album, duration, and any other associated metadata.
 
-- **`PUT /tracks/:trackId/`** 
+- **`PUT /tracks/:trackId/`**  
   Updates information for a specified track. The request should include the albumId, title, and duration.  
   **Request Body**: `{ "albumId": "album_id", "title": "track_title", "duration": "duration_in_seconds" }`  
   **Response**: Returns updated track details.
 
-- **`DELETE /tracks/:trackId/`** 
+- **`DELETE /tracks/:trackId/`**  
   Deletes a track by ID.  
   **Response**: Confirms deletion of the track. 
 
-- **`POST /play/:trackId/`** 
+- **`POST /play/:trackId/`**  
   Marks a track as played by the user. This action increases the track's play counter.
   **Response**: Confirms that the track's play status has been updated. 
 
-- **`GET /played/`** 
+- **`GET /played/`**  
   Retrieves a history of the most played tracks by the user, typically from the last 28 days.
   **Response**: A list of tracks that have been played by the user, sorted by the number of plays.
 
-- **`POST /like/:trackId/`** 
+- **`POST /like/:trackId/`**  
   Marks a track as liked by the user. If the track has already been liked by the user, an error is returned.  
   **Response**: Confirms the like status of the track.
 
-- **`DELETE /like/:trackId/`** 
+- **`DELETE /like/:trackId/`**  
   Removes a track from the user’s liked tracks.  
   **Response**: Confirms that the track has been unliked and removed from the user's liked list.
 
-- **`GET /liked/`** 
+- **`GET /liked/`**  
   Retrieves a list of all tracks that the user has liked.
   **Response**: A list of tracks that are marked as liked by the user.
 
-- **`GET /search/`** 
+- **`GET /search/`**  
   Allows the user to search for tracks based on keywords or filters. Search can be done across the track's title, album name, and artist name.
   **Request Query**: `?q=search_term`  
   **Response**: A list of tracks that match the search query.
@@ -248,41 +248,41 @@ Below is a comprehensive list of API endpoints, grouped by functionality with a 
 
 ### Playlist
 
-- **`GET /playlist/`** 
+- **`GET /playlist/`**  
   Retrieves a list of all playlists created by the logged-in user.  
   **Response**: List of playlists.
   
-- **`GET /playlists/:userId/`** 
+- **`GET /playlists/:userId/`**  
   Retrieves all public playlists for a specified user by user ID.  
   **Response**: A list of public playlists for the user with the specified ID. If the requestor is the same as the userId, their private playlists will also be included.
 
-- **`POST /playlist/`** 
+- **`POST /playlist/`**  
   Creates a new playlist for the user. The request body should include the playlist name, description, and a public flag. By default, the playlist is created as public unless specified otherwise.  
   **Request Body**: `{ "name": "playlist_name", "description": "playlist_description", "public": false }` Public field by default is set to true.    
   **Response**: Returns the newly created playlist. 
 
-- **`GET /playlist/:playlistId/`** 
+- **`GET /playlist/:playlistId/`**  
   Retrieves details of a specific playlist by ID.  
   **Response**: Returns playlist data.
 
-- **`PUT /playlist/:playlistId/`** 
+- **`PUT /playlist/:playlistId/`**  
   Updates a specified playlist’s details. The request body should include the playlist name, description, and a public flag.
   **Request Body**: `{ "name": "playlist_name", "description": "playlist_description", "public": false }`  
   **Response**: Returns updated playlist details.
 
-- **`DELETE /playlist/:playlistId/`** 
+- **`DELETE /playlist/:playlistId/`**  
   Deletes a playlist by ID.  
   **Response**: Confirms deletion of the playlist. 
 
-- **`POST /add-track/:trackId/`** 
+- **`POST /add-track/:trackId/`**  
   If a playlistId is not provided, a new playlist is created with the track title as the playlist name. Otherwise, the track is added to an existing playlist.
   **Response**: Confirms that the track has been added to the playlist (or a new playlist is created).
 
-- **`POST /add-track/:trackId/:playlistId/`** 
+- **`POST /add-track/:trackId/:playlistId/`**  
   Adds a track to a specified playlist.  
   **Response**: Confirms track addition. 
 
-- **`DELETE /remove-track/:trackId/`** 
+- **`DELETE /remove-track/:trackId/`**  
   Removes a track from the current playlist.  
   **Request Body**: `{ "trackId": "track_id" }`  
   **Response**: Confirms track removal. 
