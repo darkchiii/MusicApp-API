@@ -1,4 +1,4 @@
-![Image of Visualization TuneBase-API](https://github.com/darkchiii/TuneBase-API/blob/master/visualization-TuneBase.jpg)
+![Image of Visualization TuneBase-API](https://github.com/darkchiii/TuneBase-API/blob/master/visualization-tunebase.jpg)
 # TuneBase-API
 
 A RESTful API for managing music-related data, including artists, albums, tracks, and playlists. This API provides endpoints for user authentication, music library management, and CRUD operations for various music-related entities.
