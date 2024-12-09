@@ -1,5 +1,5 @@
 ![Image of Visualization MusicApp-API](https://github.com/darkchiii/MusicApp-API/blob/master/visualization-musicapp.jpg)
-# MusicApp-API
+# TuneBase-API
 
 A RESTful API for managing music-related data, including artists, albums, tracks, and playlists. This API provides endpoints for user authentication, music library management, and CRUD operations for various music-related entities.
 
