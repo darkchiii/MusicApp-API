@@ -1,4 +1,4 @@
-![Image of Visualization MusicApp-API](https://github.com/darkchiii/MusicApp-API/blob/master/visualization-musicapp.jpg)
+![Image of Visualization TuneBase-API](https://github.com/darkchiii/TuneBase-API/blob/master/visualization-TuneBase.jpg)
 # TuneBase-API
 
 A RESTful API for managing music-related data, including artists, albums, tracks, and playlists. This API provides endpoints for user authentication, music library management, and CRUD operations for various music-related entities.
@@ -14,11 +14,11 @@ A RESTful API for managing music-related data, including artists, albums, tracks
 
 ## Features
 
-MusicApp-API offers essential functionalities to efficiently manage a music library. The features are organized from the most crucial to the less essential.
+-API offers essential functionalities to efficiently manage a music library. The features are organized from the most crucial to the less essential.
 
 ### 1. Music Library Management
 
-The core of MusicApp-API is its comprehensive support for managing music-related data, allowing users to perform CRUD operations on:
+The core of TuneBase-API is its comprehensive support for managing music-related data, allowing users to perform CRUD operations on:
 
 - **Artists**: Add, update, delete, and retrieve information about various artists in the library.
 - **Albums**: Add and manage albums associated with artists, including updating album details and removing albums.
@@ -26,7 +26,7 @@ The core of MusicApp-API is its comprehensive support for managing music-related
 
 ### 2. User Authentication
 
-To secure user access, MusicApp-API provides robust authentication features:
+To secure user access, TuneBase-API provides robust authentication features:
 
 - **Login and Registration**: Users can create accounts, log in, and securely log out, with all data managed privately.
 - **Token-Based Authentication**: Token verification ensures secure access to API endpoints, allowing only authorized users to access restricted features.
@@ -41,14 +41,14 @@ Playlist functionality enables users to organize their favorite music in custom 
 
 ### 4. Data Filtering and Searching
 
-MusicApp-API supports efficient data retrieval and filtering:
+TuneBase-API supports efficient data retrieval and filtering:
 
 - **Filtering by Genre, Artist, and Album**: Users can retrieve music data based on genre, artist, or album, streamlining the search for specific types of music.
 - **Track Search**: Enables quick access to desired tracks by searching for keywords or applying filters.
 
 ### 5. User Activity Tracking
 
-To enhance user experience, MusicApp-API tracks playback history and user preferences:
+To enhance user experience, TuneBase-API tracks playback history and user preferences:
 
 - **Playback History**: Keeps a log of all tracks played by the user, enabling easy access to playback history.
 - **Liked Tracks**: Users can mark tracks as “liked” and access a list of their favorite tracks.
@@ -66,8 +66,8 @@ To enhance user experience, MusicApp-API tracks playback history and user prefer
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/darkchiii/MusicApp-API.git
-cd MusicApp-API
+git clone https://github.com/darkchiii/TuneBase-API.git
+cd TuneBase-API
 ```
 
 2. Install dependencies:
